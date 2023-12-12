@@ -6,6 +6,8 @@ idf_component_register(
         freertos
         esp_common
         nvs_flash
+        driver
     # Project Components
         wifiController
+        ledController
     )

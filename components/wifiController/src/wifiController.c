@@ -17,6 +17,8 @@
 // Espressif Modules 
 #include "esp_wifi.h"
 #include "esp_log.h"
+#include "freertos/freeRTOS.h"
+#include "freertos/task.h"
 
 // Project Modules
 #include "config.h"
@@ -40,6 +42,24 @@ void WifiController_init(void)
     ESP_LOGI(TAG,"Wifi Module Init");
     // Scan for access points.
     wifiController_scan_ap();
+}
+
+/*******************************************************************************
+ * WifiController_task
+ * 
+ * @brief Task/Thread of the wifi controller
+ * 
+ * @param pvParamter - Task parameters (freeRTOS standard)
+ * 
+ * @returns none
+ ******************************************************************************/
+void WifiController_task(void *pvParameter)
+{
+    while(true)
+    {
+        ESP_LOGI(TAG,"Wifi Task Alive...");
+        vTaskDelay(3000 / portTICK_PERIOD_MS);
+    }
 }
 
 /*******************************************************************************
@@ -79,7 +99,8 @@ static void wifiController_scan_ap(void)
     ESP_LOGI(TAG, "Access points Scanned: %u | Max Access points : %u", ap_count, channelsToScan);
     
     // Print Scanned network SSID and RSSI 
-    for (int i = 0; i < channelsToScan; i++) {
+    for (int i = 0; i < channelsToScan; i++) 
+    {
         ESP_LOGI(TAG, "=============================");
         ESP_LOGI(TAG, "AP   : %d", i);
         ESP_LOGI(TAG, "SSID : %s", ap_info[i].ssid);

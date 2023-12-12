@@ -12,5 +12,6 @@
 #define WIFI_CONTROLLER_H_
 
 void WifiController_init(void);
+void WifiController_task(void *pvParameter);
 
 #endif // WIFI_CONTROLLER_H_

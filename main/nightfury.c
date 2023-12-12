@@ -20,9 +20,11 @@
 
 // Components
 #include "wifiController.h"
+#include "ledController.h"
 
 // Private methods
 static void nvs_init(void);
+static void app_start_tasks(void);
 
 // Private types
 static const char *TAG = "nightfury_main";
@@ -36,8 +38,28 @@ static const char *TAG = "nightfury_main";
  ******************************************************************************/
 void app_init(void)
 {
+    // Led Controller
+    LedController_init();
+
     // Wifi Controls
     WifiController_init();
+}
+
+/*******************************************************************************
+ * app_start_tasks
+ * 
+ * @brief start freeRTOS tasks
+ * 
+ * @returns none
+ ******************************************************************************/
+static void app_start_tasks(void)
+{
+    // Wifi Controller Task
+    xTaskCreate(&WifiController_task, "WifiController_task", 2048, NULL, 5, NULL);
+
+    // Led Control task
+    xTaskCreate(&LedController_task, "LedController_task", 2048, NULL, 5, NULL);
+
 }
 
 /*******************************************************************************
@@ -56,13 +78,10 @@ void app_main(void)
     // Initialize application code
     app_init();
 
-    // TODO : Migrate project structure to FreeRTOS based implementation.
-    while(true)
-    {
-        // Kick watchdog every 1000 ms - Keeps application alive 
-        // TODO: When freeRTOS tasking has been implemented - we need to remove this code
-        vTaskDelay(pdMS_TO_TICKS(1000));
-    }
+    ESP_LOGI(TAG,"Component init complete, starting tasks");
+
+    // Start tasking.
+    app_start_tasks();
 }
 
 /*******************************************************************************
