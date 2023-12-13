@@ -8,6 +8,10 @@
  * 
  ************************************************************************/
 
+//=============================================================================
+// Interfaces
+//-----------------------------------------------------------------------------
+
 // POSIX defines
 #include <stdio.h>
 #include <stdbool.h>
@@ -18,16 +22,20 @@
 #include "freertos/freeRTOS.h"
 #include "freertos/task.h"
 
-// Components
+// Project Modules
 #include "wifiController.h"
 #include "ledController.h"
 
-// Private methods
+//========================================================================
+// Private types
+//------------------------------------------------------------------------
+static const char *TAG = "nightfury_main";
+
+//========================================================================
+// Private functions
+//------------------------------------------------------------------------
 static void nvs_init(void);
 static void app_start_tasks(void);
-
-// Private types
-static const char *TAG = "nightfury_main";
 
 /*******************************************************************************
  * app_init
