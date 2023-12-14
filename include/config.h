@@ -13,11 +13,11 @@
 
 #include <stdbool.h>
 
-/**
- * 
- *  LED CONTROLS
- * 
-*/
+
+
+//=============================================================================
+// LED Controller
+//-----------------------------------------------------------------------------
 
 // Onboard LED - Single colour 
 #define CONFIG__LED_ONBOARD_SINGLE  true
@@ -28,5 +28,9 @@
 
 // Onboard LED - ARGB
 #define CONFIG__LED_ONBOARD_RGB     false
+
+#ifdef CONFIG__LED_ONBOARD_RGB
+    #define LED_ONBOARD_RGB_PIN GPIO_NUM_8
+#endif // CONFIG__LED_ONBOARD_RGB
 
 #endif // CONFIG_H_

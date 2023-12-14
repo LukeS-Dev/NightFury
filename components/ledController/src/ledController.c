@@ -65,7 +65,6 @@ void LedController_init(void)
     #ifdef CONFIG__LED_ONBOARD_RGB
         // No implementation for RGB LED
     #endif
-
 }
 
 /*******************************************************************************
@@ -79,13 +78,18 @@ void LedController_task(void *pvParameter)
 {
     while (true)
     {
-        #ifdef CONFIG__LED_ONBOARD_SINGLE
+        #if CONFIG__LED_ONBOARD_SINGLE
             led_single_task();
         #endif
 
         #ifdef CONFIG__LED_ONBOARD_RGB
             // No implementation for RGB LED
         #endif
+
+        // TODO: Better implementation for this is to not use 
+        // vTaskDelay for LED toggling - We should setup system timers to do 
+        // This instead. look at freerots/timers.h 
+        vTaskDelay(1000/portTICK_PERIOD_MS);
     }
 }
 
@@ -105,7 +109,6 @@ static void led_single_task()
 
     ledState = !ledState; // Toggle LED State
     gpio_set_level(DEV_BOARD_LED_PIN, ledState);
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
 }
 
 /*******************************************************************************
