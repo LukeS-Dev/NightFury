@@ -33,4 +33,11 @@
     #define LED_ONBOARD_RGB_PIN GPIO_NUM_8
 #endif // CONFIG__LED_ONBOARD_RGB
 
+//=============================================================================
+// WIFI settings
+//-----------------------------------------------------------------------------
+
+#define CONFIG__WIFI_SSID       "WIFI_SID"
+#define CONFIG__WIFI_PASSWORD   "WIFI_PASSWORD"
+
 #endif // CONFIG_H_
