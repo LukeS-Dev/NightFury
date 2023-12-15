@@ -32,10 +32,6 @@ static const char *TAG = "wifi_controller";
 
 #define DEFAULT_SCAN_LIST_SIZE 0x0F // Up to 16 SSIDs in scan.
 
-// WiFi connection bits
-#define WIFI_CONNECTED_BIT BIT0
-#define WIFI_FAIL_BIT      BIT1
-
 //=============================================================================
 // Private functions
 //-----------------------------------------------------------------------------
