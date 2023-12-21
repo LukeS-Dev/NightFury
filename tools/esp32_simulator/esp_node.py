@@ -1,4 +1,5 @@
 from esp_interface import ESP32_Serial_Interface, ESP32_Protocol, ESP32_Socket_Interface
+import config
 
 # Singular Node for ESP32
 class ESP32_Node():
@@ -7,7 +8,7 @@ class ESP32_Node():
         self.socket = ESP32_Socket_Interface(ip_address,port)    
 
 if __name__ == "__main__":
-    ESP_Node = ESP32_Node("127.0.0.1",10000)
+    ESP_Node = ESP32_Node(config.DEFAULT_IP,config.DEFAULT_PORT)
 
     if (ESP_Node.socket.check_connection_status() == ESP32_Socket_Interface.CONNECTED): 
         print("Connection Success")

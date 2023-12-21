@@ -4,10 +4,11 @@
 
 import socket
 import time
+import config
 
 # Create a TCP/IP socket
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_address = ('127.0.0.1', 10000)
+server_address = (config.DEFAULT_IP, config.DEFAULT_PORT)
 server.bind(server_address)
 server.listen(5)
 server.settimeout(0.5)
