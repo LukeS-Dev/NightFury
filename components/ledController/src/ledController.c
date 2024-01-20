@@ -59,7 +59,7 @@ void LedController_init(void)
     ESP_LOGI(TAG,"Led controller module Init");
     
     #ifdef CONFIG__LED_ONBOARD_SINGLE
-        led_single_init();
+        //led_single_init();
     #endif
 
     #ifdef CONFIG__LED_ONBOARD_RGB
@@ -79,7 +79,7 @@ void LedController_task(void *pvParameter)
     while (true)
     {
         #if CONFIG__LED_ONBOARD_SINGLE
-            led_single_task();
+            //led_single_task();
         #endif
 
         #ifdef CONFIG__LED_ONBOARD_RGB
