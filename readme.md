@@ -1,4 +1,4 @@
-# Nightfury - Node BEEP BOOP BEEP
+# Nightfury - Node BEEP BOOP BEEP +++
 
 Nightfury is a WiFi based wireless data collector build using the ESP-IDF framework. 
 
