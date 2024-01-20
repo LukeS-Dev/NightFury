@@ -71,6 +71,8 @@ void WifiController_task(void *pvParameter)
     {
         ESP_LOGI(TAG,"Wifi Task Alive...");
         vTaskDelay(3000 / portTICK_PERIOD_MS);
+        ESP_LOGI("TEST:", "Stanley's first print statement");
+        vTaskDelay(3000 / portTICK_PERIOD_MS);
     }
 }
 
