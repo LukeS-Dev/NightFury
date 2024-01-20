@@ -1,4 +1,4 @@
-# Nightfury - Node
+# Nightfury (emily/dev)
 
 Nightfury is a WiFi based wireless data collector build using the ESP-IDF framework. 
 
