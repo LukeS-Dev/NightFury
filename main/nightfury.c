@@ -50,7 +50,7 @@ void app_init(void)
     LedController_init();
 
     // Wifi Controls
-    WifiController_init();
+    //WifiController_init();
 }
 
 /*******************************************************************************
@@ -63,7 +63,7 @@ void app_init(void)
 static void app_start_tasks(void)
 {
     // Wifi Controller Task
-    xTaskCreate(&WifiController_task, "WifiController_task", 8192, NULL, 5, NULL);
+    //xTaskCreate(&WifiController_task, "WifiController_task", 8192, NULL, 5, NULL);
 
     // Led Control task
     xTaskCreate(&LedController_task, "LedController_task", 2048, NULL, 5, NULL);

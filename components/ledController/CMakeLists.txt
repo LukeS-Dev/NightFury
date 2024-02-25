@@ -6,4 +6,5 @@ idf_component_register(
         "../../include"
     PRIV_REQUIRES
         driver
+        espressif__led_strip
     )
