@@ -17,15 +17,8 @@
 // LED Controller
 //-----------------------------------------------------------------------------
 
-// Onboard LED - Single colour 
-#define CONFIG__LED_ONBOARD_SINGLE  true
-
-#ifdef  CONFIG__LED_ONBOARD_SINGLE
-    #define LED_ONBOARD_PIN GPIO_NUM_2
-#endif // LED_ONBOARD_SINGLE
-
 // Onboard LED - ARGB
-#define CONFIG__LED_ONBOARD_RGB     false
+#define CONFIG__LED_ONBOARD_RGB     true
 
 #ifdef CONFIG__LED_ONBOARD_RGB
     #define LED_ONBOARD_RGB_PIN GPIO_NUM_8
